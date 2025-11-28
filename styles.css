@@ -48,7 +48,7 @@ body {
    .logo-area img {
     height: 80px; /* original size */
     transform: scale(1.4); /* visually increases size */
-    transform-origin: left center; /* keeps alignment clean */
+    transform-origin: center; /* keeps alignment clean */
 }
 
     padding: 20px 30px;
