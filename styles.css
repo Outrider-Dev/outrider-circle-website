@@ -45,11 +45,6 @@ body {
 -------------------------------------------------- */
 
 .main-header {
-  .logo-area img { .logo-area img {
-    height: 80px; /* original size */
-    transform: scale(1.4); /* visually increases size */
-    transform-origin: center; /* keeps alignment clean */
-}
 
     padding: 20px 30px;
     background: rgba(0, 0, 0, 0.45);
@@ -60,10 +55,12 @@ body {
     justify-content: center;
 }
 
+
+
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 9px;
 }
 
 .site-logo {
