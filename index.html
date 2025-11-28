@@ -5,94 +5,304 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Outrider Circle</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css" />
+    <!-- RESET + BASE STYLES -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #e6e6e6;
+            background: #0b0b0b url('https://i.imgur.com/9r2FJYs.jpeg') center/cover fixed;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; }
+
+        /* COLORS */
+        :root {
+            --gold: #c7a355;
+            --gold-light: #e8c374;
+            --dark-bg: #0d0d0d;
+            --panel-bg: rgba(10,10,10,0.85);
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(5px);
+            border-bottom: 2px solid #222;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .logo-area img {
+            height: 110px;
+            width: auto;
+            filter: drop-shadow(0 0 6px black);
+        }
+        .brand-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 34px;
+            letter-spacing: 3px;
+            font-weight: 500;
+            color: var(--gold);
+        }
+        nav a {
+            margin-left: 30px;
+            color: #e6e6e6;
+            font-weight: bold;
+            font-size: 17px;
+            transition: 0.2s ease;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            height: 70vh;
+            background: url('https://i.imgur.com/8V7G8HU.jpeg') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 15px black;
+        }
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px black;
+        }
+        .btn {
+            background: var(--gold);
+            padding: 14px 32px;
+            color: #000;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 18px;
+            display: inline-block;
+            transition: 0.2s ease;
+        }
+        .btn:hover {
+            background: var(--gold-light);
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+        h2.section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-family: 'Oswald', sans-serif;
+        }
+        .section-text {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        .feature-box {
+            background: var(--panel-bg);
+            padding: 30px;
+            border: 1px solid #222;
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
+        }
+        .feature-box h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+        }
+        .feature-box p {
+            font-size: 18px;
+            color: #dcdcdc;
+        }
+
+        /* PRICING SECTION */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .price-card {
+            background: var(--panel-bg);
+            padding: 35px;
+            border: 1px solid #333;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .price-card h3 {
+            font-size: 30px;
+            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 15px;
+        }
+        .price-card .price {
+            font-size: 42px;
+            margin: 15px 0;
+        }
+        .price-card ul {
+            list-style: none;
+            margin: 25px 0;
+            font-size: 19px;
+            color: #ccc;
+        }
+        .price-card ul li {
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 2px solid #222;
+            background: #000;
+        }
+        footer p { color: #777; }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .hero h2 { font-size: 42px; }
+            .hero p { font-size: 18px; }
+            .logo-area img { height: 85px; }
+            header { flex-direction: column; gap: 20px; }
+        }
+
+    </style>
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <header class="main-header">
-        <div class="logo-container">
-            <img src="images/center_logo.png" alt="The Outrider Circle Logo" class="site-logo" />
-            <div class="header-text">
-                <h1 class="site-title">THE OUTRIDER CIRCLE</h1>
-                <p class="site-subtitle">Private Survival Community • Tactical Gear Drops • Real-World Readiness</p>
+    <header>
+        <div class="logo-area">
+            <img src="images/center_logo.png" alt="Outrider Circle Logo" />
+            <div class="brand-text">
+                <h1>THE OUTRIDER CIRCLE</h1>
             </div>
         </div>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#join">Join</a>
+        </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-overlay">
+        <div>
             <h2>Prepare. Adapt. Overcome.</h2>
-            <p>Learn survival. Build resilience. Join a brotherhood of real-world preparedness.</p>
-            <a href="#pricing" class="cta-button">Join the Circle</a>
+            <p>Elite survival knowledge. Tactical gear. Brotherhood-level readiness.</p>
+            <a href="#pricing" class="btn">JOIN THE CIRCLE</a>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-        <h2>What Is The Outrider Circle?</h2>
-        <p>
-            The Outrider Circle is a private survival and tactical readiness community delivering knowledge, 
-            gear, and real-world preparedness training. Whether you're building skills, stockpiling tools, 
-            or strengthening your mindset, this is where you evolve.
-        </p>
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">What Is The Outrider Circle?</h2>
+        <p class="section-text">A private, members-only tactical and survival guild focused on resilience, fieldcraft, gear, and mindset. This is where men sharpen their edge for the real world.</p>
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section class="features">
-        <div class="feature">
-            <h3>🎖 Tactical Supply Crates</h3>
-            <p>Monthly curated crates with high-grade survival tools, bushcraft gear, and field essentials.</p>
-        </div>
-
-        <div class="feature">
-            <h3>📡 Communications & Off-Grid Skills</h3>
-            <p>Learn radio comms, navigation, first aid, and off-grid survival techniques.</p>
-        </div>
-
-        <div class="feature">
-            <h3>🛡 Members-Only Training</h3>
-            <p>Private digital courses, scenario breakdowns, and real-world readiness blueprints.</p>
+    <!-- FEATURES -->
+    <section id="features">
+        <h2 class="section-title">What You Get</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>⚔ Tactical Supply Crates</h3>
+                <p>Premium curated survival tools, knives, bushcraft gear, and off-grid essentials.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📡 Off-Grid Training</h3>
+                <p>Navigation, communications, threat awareness, and real-world survival skills.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🛡 Private Community</h3>
+                <p>A tribe of prepared individuals evolving together through real discussion and strategy.</p>
+            </div>
         </div>
     </section>
 
-    <!-- PRICING SECTION -->
-    <section class="pricing" id="pricing">
-        <h2 class="section-title">Membership Plans</h2>
+    <!-- PRICING -->
+    <section id="pricing">
+        <h2 class="section-title">Membership Options</h2>
 
-        <div class="pricing-container">
+        <div class="pricing-grid">
 
-            <!-- DIGITAL MEMBERSHIP -->
-            <div class="pricing-card">
+            <!-- DIGITAL PLAN -->
+            <div class="price-card">
                 <h3>Digital Membership</h3>
-                <p class="price">$12 / month</p>
-                <p class="pricing-description">
-                    Access to the full private community, training modules, and digital resources.
-                </p>
-                <a href="#" class="cta-button pricing-btn">Join Digital</a>
+                <div class="price">$50/mo</div>
+                <ul>
+                    <li>Access to the private community</li>
+                    <li>Current events and threat level</li>
+                    <li>Connect with like-minded people</li>
+                </ul>
+                <a href="#" class="btn">Join for $50/mo</a>
             </div>
 
-            <!-- FULL MEMBERSHIP + CRATE -->
-            <div class="pricing-card premium">
-                <h3>Full Membership + Monthly Crate</h3>
-                <p class="price">$49 / month</p>
-                <p class="pricing-description">
-                    Everything in the digital plan plus a monthly physical tactical supply crate.
-                </p>
-                <a href="#" class="cta-button pricing-btn">Join Full Access</a>
+            <!-- FULL PLAN -->
+            <div class="price-card">
+                <h3>Full Membership + Crate</h3>
+                <div class="price">$100/mo</div>
+                <ul>
+                    <li>Everything in Digital Membership</li>
+                    <li>Monthly tactical supply crate shipped to you</li>
+                    <li>Premium tools, gear, and survival items</li>
+                </ul>
+                <a href="#" class="btn">Join for $100/mo</a>
             </div>
 
+        </div>
+    </section>
+
+    <!-- JOIN -->
+    <section id="join">
+        <h2 class="section-title">Join The Circle</h2>
+        <p class="section-text">Become part of a dedicated community trained to handle the real world — not fantasy theory.</p>
+        <div style="text-align:center;">
+            <a href="#pricing" class="btn">BECOME A MEMBER</a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2025 The Outrider Circle. All rights reserved.</p>
+        <p>© 2025 The Outrider Circle. All Rights Reserved.</p>
     </footer>
 
 </body>
