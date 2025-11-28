@@ -134,6 +134,81 @@
         }
         footer p { color: #777; }
     </style>
+<style>
+/* Pricing Section Styles */
+.pricing {
+    padding: 80px 20px;
+    background: #0e0e0e;
+    text-align: center;
+}
+.pricing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #e5e5e5;
+}
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.price-card {
+    background: #1a1a1a;
+    border: 1px solid #2b2b2b;
+    border-radius: 16px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.price-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+.price-card.premium {
+    border: 1px solid #d4af37;
+}
+.price-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.price-card .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d4af37;
+    margin: 15px 0;
+}
+.price-card p {
+    color: #c4c4c4;
+    margin-bottom: 20px;
+}
+.price-button {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background .3s ease;
+}
+.price-button:hover {
+    background: #d4af37;
+    color: #111;
+}
+.premium-btn {
+    background: #d4af37;
+    color: #111;
+}
+.premium-btn:hover {
+    background: #b8922f;
+}
+/* Responsive */
+@media(max-width: 768px){
+    .pricing-container { flex-direction: column; align-items: center; }
+}
+</style>
 </head>
 
 <body>
@@ -141,7 +216,7 @@
     <!-- HEADER -->
     <header>
         <div class="logo-area">
-            <img src="images/center_logo.png" alt="Outrider Circle Logo" />
+            <img src="images/center_logo.png" alt="The Outrider Circle Logo" class="site-logo" style="width:180px; height:auto;" />
             <div class="brand-text">
                 <h1>THE OUTRIDER CIRCLE</h1>
             </div>
@@ -155,11 +230,36 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" style="background-image:url('images/hero_bg.jpg'); background-size:cover; background-position:center;">
         <div>
             <h2>Prepare. Adapt. Overcome.</h2>
             <p>Elite survival knowledge. Tactical gear. Brotherhood-level readiness.</p>
             <a href="#join" class="btn">JOIN THE CIRCLE</a>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="pricing">
+        <h2>Membership Pricing</h2>
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>Digital Membership</h3>
+                <p class="price">$50 / month</p>
+                <p>Access to the full private community, training modules, and digital resources.</p>
+                <a href="YOUR_STRIPE_LINK_DIGITAL" class="price-button">Join Digital</a>
+                <h3>Digital Membership</h3>
+                <p class="price">$50 / month</p>
+                <p>Access to the full private community, training modules, and digital resources.</p>
+            </div>
+            <div class="price-card premium">
+                <h3>Full Membership + Crate</h3>
+                <p class="price">$100 / month</p>
+                <p>Everything in the digital plan + a monthly physical tactical supply crate.</p>
+                <a href="YOUR_STRIPE_LINK_FULL" class="price-button premium-btn">Join Full Membership</a>
+                <h3>Full Membership + Crate</h3>
+                <p class="price">$100 / month</p>
+                <p>Everything in the digital plan + a monthly physical tactical supply crate.</p>
+            </div>
         </div>
     </section>
 
