@@ -5,184 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Outrider Circle</title>
 
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- RESET + BASE STYLES -->
     <style>
+        /* RESET */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
+            background-color: #0c0c0c;
+            background-image: url('images/grunge_texture.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #e8e8e8;
             font-family: 'Roboto', sans-serif;
-            color: #e6e6e6;
-            background: #0b0b0b url('https://i.imgur.com/9r2FJYs.jpeg') center/cover fixed;
             line-height: 1.6;
         }
-        a { text-decoration: none; }
 
-        /* COLORS */
-        :root {
-            --gold: #c7a355;
-            --gold-light: #e8c374;
-            --dark-bg: #0d0d0d;
-            --panel-bg: rgba(10,10,10,0.85);
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
         }
 
-        /* HEADER */
+        a { text-decoration: none; }
+
+        /* ------------ HEADER ------------ */
         header {
             width: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             padding: 20px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            backdrop-filter: blur(5px);
-            border-bottom: 2px solid #222;
+            border-bottom: 2px solid #232323;
         }
+
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 25px;
-        }
-        .logo-area img {
-            height: 110px;
-            width: auto;
-            filter: drop-shadow(0 0 6px black);
-        }
-        .brand-text h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 34px;
-            letter-spacing: 3px;
-            font-weight: 500;
-            color: var(--gold);
-        }
-        nav a {
-            margin-left: 30px;
-            color: #e6e6e6;
-            font-weight: bold;
-            font-size: 17px;
-            transition: 0.2s ease;
-        }
-        nav a:hover {
-            color: var(--gold);
+            gap: 20px;
         }
 
-        /* HERO */
+        .logo-area img {
+            height: 120px;   /* Larger logo */
+            width: auto;
+        }
+
+        .brand-text h1 {
+            font-size: 32px;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        nav a {
+            margin-left: 30px;
+            color: #e8e8e8;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #c7a355;
+        }
+
+        /* ------------ HERO ------------ */
         .hero {
             width: 100%;
-            height: 70vh;
-            background: url('https://i.imgur.com/8V7G8HU.jpeg') no-repeat center/cover;
+            height: 75vh;
+            background: url('images/hero_bg.jpg') no-repeat center/cover;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
             padding: 20px;
         }
-        .hero h2 {
-            font-family: 'Oswald', sans-serif;
+
+        .hero-content h2 {
             font-size: 60px;
-            margin-bottom: 15px;
             color: #fff;
-            text-shadow: 0 0 15px black;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
-        .hero p {
+
+        .hero-content p {
             font-size: 22px;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px black;
+            color: #f2f2f2;
         }
+
         .btn {
-            background: var(--gold);
-            padding: 14px 32px;
+            background: #c7a355;
+            padding: 14px 34px;
             color: #000;
             font-weight: bold;
             border-radius: 6px;
             font-size: 18px;
             display: inline-block;
-            transition: 0.2s ease;
-        }
-        .btn:hover {
-            background: var(--gold-light);
         }
 
-        /* SECTIONS */
+        .btn:hover {
+            background: #e3c379;
+        }
+
+        /* ------------ SECTIONS ------------ */
         section {
             max-width: 1200px;
             margin: auto;
             padding: 80px 20px;
         }
+
         h2.section-title {
             text-align: center;
             font-size: 40px;
             margin-bottom: 30px;
-            font-family: 'Oswald', sans-serif;
+            color: #fff;
         }
+
         .section-text {
             max-width: 800px;
             margin: 0 auto 40px auto;
             text-align: center;
             font-size: 20px;
-            color: #ddd;
+            color: #d6d6d6;
         }
 
-        /* FEATURES GRID */
+        /* FEATURES */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
+            gap: 30px;
         }
+
         .feature-box {
-            background: var(--panel-bg);
+            background: rgba(17,17,17,0.9);
             padding: 30px;
             border: 1px solid #222;
             border-radius: 10px;
-            backdrop-filter: blur(4px);
+            box-shadow: 0 0 12px rgba(0,0,0,0.5);
         }
+
         .feature-box h3 {
             font-size: 26px;
             margin-bottom: 12px;
-            color: var(--gold);
-            font-family: 'Oswald', sans-serif;
-        }
-        .feature-box p {
-            font-size: 18px;
-            color: #dcdcdc;
+            color: #c7a355;
         }
 
-        /* PRICING SECTION */
+        .feature-box p {
+            font-size: 18px;
+            color: #d1d1d1;
+        }
+
+        /* ------------ PRICING SECTION ------------ */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 50px;
         }
+
         .price-card {
-            background: var(--panel-bg);
-            padding: 35px;
-            border: 1px solid #333;
+            background: rgba(15,15,15,0.92);
+            padding: 40px 30px;
             border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
             text-align: center;
         }
+
         .price-card h3 {
-            font-size: 30px;
-            color: var(--gold);
-            font-family: 'Oswald', sans-serif;
-            margin-bottom: 15px;
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #c7a355;
         }
+
         .price-card .price {
-            font-size: 42px;
-            margin: 15px 0;
+            font-size: 36px;
+            font-weight: 600;
+            margin: 20px 0;
         }
+
         .price-card ul {
             list-style: none;
-            margin: 25px 0;
-            font-size: 19px;
-            color: #ccc;
+            text-align: left;
+            margin: 20px 0;
         }
+
         .price-card ul li {
+            font-size: 18px;
             margin-bottom: 12px;
+            color: #e6e6e6;
+        }
+
+        .price-card a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 30px;
+            background: #c7a355;
+            color: #000;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+
+        .price-card a:hover {
+            background: #e3c379;
         }
 
         /* FOOTER */
@@ -190,18 +234,23 @@
             text-align: center;
             padding: 30px;
             border-top: 2px solid #222;
-            background: #000;
+            background: rgba(0,0,0,0.85);
+            margin-top: 60px;
         }
-        footer p { color: #777; }
+
+        footer p {
+            color: #777;
+        }
 
         /* RESPONSIVE */
-        @media (max-width: 700px) {
-            .hero h2 { font-size: 42px; }
-            .hero p { font-size: 18px; }
-            .logo-area img { height: 85px; }
-            header { flex-direction: column; gap: 20px; }
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 44px;
+            }
+            .logo-area img {
+                height: 90px;
+            }
         }
-
     </style>
 </head>
 
@@ -226,34 +275,39 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div>
+        <div class="hero-content">
             <h2>Prepare. Adapt. Overcome.</h2>
-            <p>Elite survival knowledge. Tactical gear. Brotherhood-level readiness.</p>
-            <a href="#pricing" class="btn">JOIN THE CIRCLE</a>
+            <p>Elite survival knowledge. Tactical gear. Current threat awareness.</p>
+            <a href="#join" class="btn">JOIN THE CIRCLE</a>
         </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about">
         <h2 class="section-title">What Is The Outrider Circle?</h2>
-        <p class="section-text">A private, members-only tactical and survival guild focused on resilience, fieldcraft, gear, and mindset. This is where men sharpen their edge for the real world.</p>
+        <p class="section-text">
+            A private survival & readiness guild focused on real-world resilience, fieldcraft, gear, threat awareness, and brotherhood-level unity.
+        </p>
     </section>
 
     <!-- FEATURES -->
     <section id="features">
         <h2 class="section-title">What You Get</h2>
+
         <div class="features-grid">
             <div class="feature-box">
                 <h3>⚔ Tactical Supply Crates</h3>
                 <p>Premium curated survival tools, knives, bushcraft gear, and off-grid essentials.</p>
             </div>
+
             <div class="feature-box">
-                <h3>📡 Off-Grid Training</h3>
-                <p>Navigation, communications, threat awareness, and real-world survival skills.</p>
+                <h3>📡 Current Events & Threat Level</h3>
+                <p>Real-time updates, breakdowns, and analysis of changing world conditions.</p>
             </div>
+
             <div class="feature-box">
-                <h3>🛡 Private Community</h3>
-                <p>A tribe of prepared individuals evolving together through real discussion and strategy.</p>
+                <h3>🛡 Connect With Like-Minded People</h3>
+                <p>A tribe of prepared individuals evolving together — no politics, no nonsense.</p>
             </div>
         </div>
     </section>
@@ -264,30 +318,29 @@
 
         <div class="pricing-grid">
 
-            <!-- DIGITAL PLAN -->
+            <!-- DIGITAL MEMBERSHIP -->
             <div class="price-card">
                 <h3>Digital Membership</h3>
-                <div class="price">$50/mo</div>
+                <div class="price">$15 / month</div>
                 <ul>
-                    <li>Access to the private community</li>
-                    <li>Current events and threat level</li>
+                    <li>Private community access</li>
+                    <li>Current events & threat-level intelligence</li>
                     <li>Connect with like-minded people</li>
                 </ul>
-                <a href="#" class="btn">Join for $50/mo</a>
+                <a href="#">Join Now</a>
             </div>
 
-            <!-- FULL PLAN -->
+            <!-- FULL MEMBERSHIP + CRATE -->
             <div class="price-card">
                 <h3>Full Membership + Crate</h3>
-                <div class="price">$100/mo</div>
+                <div class="price">$55 / month</div>
                 <ul>
-                    <li>Everything in Digital Membership</li>
-                    <li>Monthly tactical supply crate shipped to you</li>
-                    <li>Premium tools, gear, and survival items</li>
+                    <li>Everything in the Digital Plan</li>
+                    <li>Monthly tactical supply crate</li>
+                    <li>Premium tools, gear & survival items</li>
                 </ul>
-                <a href="#" class="btn">Join for $100/mo</a>
+                <a href="#">Subscribe</a>
             </div>
-
         </div>
     </section>
 
@@ -296,7 +349,7 @@
         <h2 class="section-title">Join The Circle</h2>
         <p class="section-text">Become part of a dedicated community trained to handle the real world — not fantasy theory.</p>
         <div style="text-align:center;">
-            <a href="#pricing" class="btn">BECOME A MEMBER</a>
+            <a href="#" class="btn">BECOME A MEMBER</a>
         </div>
     </section>
 
