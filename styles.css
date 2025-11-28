@@ -1,111 +1,236 @@
-/* Reset */
-* {
+/* --------------------------------------------------
+   GLOBAL BRANDING — Outrider Circle
+   Premium Survival Style: Gold + Charcoal + Texture
+-------------------------------------------------- */
+
+/* Font — rugged but clean UI appearance */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    color: #e6e6e6;
+    background: #0b0b0b;
+    line-height: 1.5;
 }
+
+/* Brand color palette */
+:root {
+    --gold: #d4af37;
+    --gold-dark: #b89428;
+    --charcoal: #0b0b0b;
+    --panel: #111;
+    --subtle-gray: #bbbbbb;
+}
+
+/* --------------------------------------------------
+   BACKGROUND — Rugged Tactical Texture
+   (no images needed, generated with gradients + noise)
+-------------------------------------------------- */
 
 body {
-    font-family: Georgia, serif;
-    background-color: #000;
-    color: #d1c08f;
-    line-height: 1.6;
+    background:
+        /* fine-grain noise */
+        url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200' fill='none'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='5' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(#n)' opacity='0.12'/></svg>")
+        repeat,
+
+        /* dark rugged layered gradients */
+        radial-gradient(circle at 30% 20%, #111 0%, #0a0a0a 40%, #000 100%),
+        radial-gradient(circle at 80% 70%, #151515 0%, #0a0a0a 50%, #000 100%);
+    background-size: 600px 600px, cover, cover;
 }
 
-/* HEADER */
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
 .main-header {
-    background-color: #000;
-    padding: 20px;
-    border-bottom: 2px solid #7a6a34;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
 }
 
 .site-logo {
-    width: 180px;
+    width: 140px; /* 🔥 BIGGER as requested */
     height: auto;
 }
 
 .header-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    text-align: left;
 }
 
 .site-title {
     font-size: 28px;
-    font-weight: bold;
-    color: #d1c08f;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 1px;
 }
 
 .site-subtitle {
     font-size: 14px;
-    color: #b8a673;
+    color: var(--subtle-gray);
+    margin-top: 4px;
 }
 
-/* HERO SECTION */
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
+
 .hero {
-    background-image: url('images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 480px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-overlay {
+    padding: 120px 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.55);
-    padding: 40px;
-    border-radius: 8px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%);
 }
 
 .hero h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 42px;
+    margin: 0;
+    font-weight: 800;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 12px auto 20px;
+    color: var(--subtle-gray);
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #d1c08f;
+    padding: 12px 28px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
     color: #000;
-    font-weight: bold;
-    border-radius: 6px;
-    margin-top: 15px;
+    font-weight: 700;
     text-decoration: none;
+    transition: 0.25s;
 }
 
 .cta-button:hover {
-    background: #bca96f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(212,175,55,0.25);
 }
 
-/* SECTIONS */
-section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
-}
+/* --------------------------------------------------
+   FEATURES
+-------------------------------------------------- */
 
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
+    gap: 22px;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
 }
 
-/* FOOTER */
+.feature {
+    background: rgba(0,0,0,0.4);
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+/* --------------------------------------------------
+   PRICING — Professionally Styled Cards
+-------------------------------------------------- */
+
+.pricing-section {
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.pricing-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+}
+
+.price-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 28px;
+    border-radius: 14px;
+    text-align: left;
+    position: relative;
+    transition: 0.3s;
+}
+
+.price-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.price {
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--gold);
+    margin: 8px 0;
+}
+
+.price-card .description {
+    color: var(--subtle-gray);
+    margin-bottom: 16px;
+}
+
+.price-card a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+    color: #000;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.price-card a:hover {
+    opacity: 0.85;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 2px solid #7a6a34;
-    color: #7a6a34;
+    padding: 40px 20px;
+    color: var(--subtle-gray);
+    font-size: 14px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media(max-width: 600px) {
+    .site-logo {
+        width: 110px;
+    }
+    .site-title {
+        font-size: 22px;
+    }
+    .hero h2 {
+        font-size: 32px;
+    }
 }
