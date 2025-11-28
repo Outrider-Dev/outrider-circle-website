@@ -45,7 +45,7 @@ body {
 -------------------------------------------------- */
 
 .main-header {
-   .logo-area img {
+  .logo-area img { .logo-area img {
     height: 80px; /* original size */
     transform: scale(1.4); /* visually increases size */
     transform-origin: center; /* keeps alignment clean */
