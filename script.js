@@ -51,3 +51,36 @@ function requestAccessCode(type) {
             console.error(err);
         });
 }
+// =========================
+// PWA INSTALL HANDLER
+// =========================
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.log("SW registration failed", err));
+}
+
+// Handle PWA installation prompt
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    console.log("PWA install prompt captured");
+    
+    // Optional: show a custom "Install App" button later
+    // document.getElementById("installBtn").style.display = "block";
+});
+
+// Call this if you want a manual "Install App" button later
+async function installPWA() {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const result = await deferredPrompt.userChoice;
+
+    console.log("Install choice:", result.outcome);
+    deferredPrompt = null;
+}
